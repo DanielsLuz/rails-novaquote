@@ -4,10 +4,11 @@ class QuotesController < ApplicationController
   end
 
   def new_quote
-    @quote = Quote.new()
+    @quote = Quote.new(quote_params)
     @quote.save
 
-    redirect_to root_path
+    debugger
+    render :nothing => true, :status => 200
   end
 
   private
