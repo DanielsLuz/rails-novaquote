@@ -5,7 +5,7 @@ RSpec.describe QuotesController, type: :controller do
   context 'receiving a get request' do
 
     let(:valid_params) { 
-      { text: "sample text", author: "author name" } 
+      { text: "sample text", user_name: "author name" } 
     }
 
     it 'creates a new quote' do
@@ -21,7 +21,7 @@ RSpec.describe QuotesController, type: :controller do
 
       quote = Quote.last
       expect(quote.text).to eq(valid_params[:text])
-      expect(quote.author).to eq(valid_params[:author])
+      expect(quote.user_name).to eq(valid_params[:user_name])
     end
   end
 end

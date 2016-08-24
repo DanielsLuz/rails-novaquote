@@ -1,1 +1,4 @@
-Teste
+<% @quotes.each do |quote| %>
+  <h1><%= quote.author %></h1>
+  <h2><%= quote.text %></h2>
+<% end %>
