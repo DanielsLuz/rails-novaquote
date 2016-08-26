@@ -7,6 +7,15 @@ class Quote < ActiveRecord::Base
     if(params[:text].include?(delimiter))
       params[:text], params[:user_name] = params[:text].split(" by ")
     end
-    new(params)
+
+    params[:profile_pic] = profile_pic(params[:user])
+
+    new(params.except(:user))
+  end
+
+  private
+
+  def self.profile_pic(user)
+    SlackWrapper.fetch_profile_pic(user)
   end
 end

@@ -16,6 +16,6 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
-    params.permit(:text, :user_name)
+    params.permit(:text, :user_name, :user)
   end
 end
