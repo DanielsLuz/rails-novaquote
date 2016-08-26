@@ -16,4 +16,24 @@ RSpec.describe Quote, type: :model do
                                                                                    
     expect(Quote.most_recent).to match_array(last_quotes)                          
   end
+
+  context 'when specifying author' do
+    let(:params_with_author_on_text) { 
+      { text: "\"sample text\" by @someAuthor", user_name: "author name" } 
+    }
+
+    let(:params) { 
+      { text: "sample text", user_name: "author name" } 
+    }
+
+    it 'should create author with default user_name' do
+      Quote.create(params)
+      expect(Quote.last.user_name).to eq(params[:user_name])
+    end
+
+    it 'should create author with specific user_name' do
+      Quote.create(params_with_author_on_text)
+      expect(Quote.last.user_name).to eq("someAuthor")
+    end
+  end
 end
