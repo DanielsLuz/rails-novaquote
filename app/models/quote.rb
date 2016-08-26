@@ -1,3 +1,5 @@
+require 'slack_wrapper'
+
 class Quote < ActiveRecord::Base
   scope :most_recent, -> { select("id, text, user_name")
                            .order(created_at: :desc).limit(10) }
@@ -8,7 +10,9 @@ class Quote < ActiveRecord::Base
       params[:text], params[:user_name] = params[:text].split(" by ")
     end
 
-    params[:profile_pic] = profile_pic(params[:user])
+    if(params[:user])
+      params[:profile_pic] = profile_pic(params[:user])
+    end
 
     new(params.except(:user))
   end
