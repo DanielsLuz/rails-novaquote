@@ -14,4 +14,23 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import 'quotes';
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #33495F;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.medium-font {
+  font-size: 25px;
+}
