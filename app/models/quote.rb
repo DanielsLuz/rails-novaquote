@@ -5,7 +5,7 @@ class Quote < ActiveRecord::Base
   def self.parse_params(params = {})
     delimiter = "\" by "
     if(params[:text].include?(delimiter))
-      params[:text], params[:user_name] = params[:text].split(delimiter)
+      params[:text], params[:user_name] = params[:text].split(" by ")
     end
     new(params)
   end

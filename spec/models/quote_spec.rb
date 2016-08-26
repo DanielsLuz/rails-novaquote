@@ -36,6 +36,7 @@ RSpec.describe Quote, type: :model do
       @quote = Quote.parse_params(params_with_author_on_text)
       @quote.save
       expect(Quote.last.user_name).to eq("@someAuthor")
+      expect(Quote.last.text).to eq("\"sample text\"")
     end
   end
 end
