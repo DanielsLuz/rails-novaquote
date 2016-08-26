@@ -1,7 +1,7 @@
 require 'slack_wrapper'
 
 class Quote < ActiveRecord::Base
-  scope :most_recent, -> { select("id, text, user_name")
+  scope :most_recent, -> { select("id, text, user_name, profile_pic")
                            .order(created_at: :desc).limit(10) }
 
   def self.parse_params(params = {})

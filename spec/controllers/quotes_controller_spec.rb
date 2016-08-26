@@ -30,9 +30,11 @@ RSpec.describe QuotesController, type: :controller do
     it 'returns the correct json' do                                               
       quotes = []                                                                  
       (1..10).to_a.each do |num|                                                   
-        quotes << Quote.create(text: "Text #{num}", user_name: "User #{num}")   
+        quotes << Quote.create(text: "Text #{num}", user_name: "User #{num}",
+                              profile_pic: "profile_pic")   
       end                                                                          
-      quotes = quotes.reverse.to_json(only: [:id, :text, :user_name])              
+      quotes = quotes.reverse.to_json(only: [:id, :text, :user_name,
+                                             :profile_pic])              
                                                                                    
       get :most_recent                                                             
                                                                                    

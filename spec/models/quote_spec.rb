@@ -7,7 +7,7 @@ RSpec.describe Quote, type: :model do
     { text: "sample text", user_name: "author name", user: "U24EBS1UM" } 
   }
 
-  xit 'returns the most recent quotes' do                                     
+  it 'returns the most recent quotes' do                                     
     first_quotes = []                                                              
     (1..10).to_a.each do |num|                                                     
       first_quotes << Quote.create(text: "Text #{num}", user_name: "User #{num}")  
@@ -31,7 +31,7 @@ RSpec.describe Quote, type: :model do
     expect(Quote.last.profile_pic).to eq(profile_pic)
   end
 
-  xcontext 'when specifying author' do
+  context 'when specifying author' do
     let(:params_with_author_on_text) { 
       { text: "\"sample text\" by @someAuthor", user_name: "author name" } 
     }
