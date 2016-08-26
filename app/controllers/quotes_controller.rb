@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
   end
 
   def new_quote
-    @quote = Quote.new(quote_params)
+    @quote = Quote.parse_params(quote_params)
     @quote.save
 
     render :nothing => true, :status => 200

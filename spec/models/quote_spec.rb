@@ -27,13 +27,15 @@ RSpec.describe Quote, type: :model do
     }
 
     it 'should create author with default user_name' do
-      Quote.create(params)
+      @quote = Quote.parse_params(params)
+      @quote.save
       expect(Quote.last.user_name).to eq(params[:user_name])
     end
 
     it 'should create author with specific user_name' do
-      Quote.create(params_with_author_on_text)
-      expect(Quote.last.user_name).to eq("someAuthor")
+      @quote = Quote.parse_params(params_with_author_on_text)
+      @quote.save
+      expect(Quote.last.user_name).to eq("@someAuthor")
     end
   end
 end
