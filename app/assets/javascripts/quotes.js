@@ -17,7 +17,6 @@ var createQuoteNode = function(quote) {
 var renderQuotes = function(quotesArray) {
   window.quotesArray = quotesArray;
   $('.container').children().slice(10 - quotesArray.length).remove();
-  // for(quote of quotesArray.reverse()){
   $(quotesArray.reverse()).each(function(index, quote){
     node = createQuoteNode(quote);
     $('.container').prepend($(node).fadeIn('slow'));
