@@ -25,7 +25,7 @@ RSpec.describe QuotesController, type: :controller do
     end
   end
 
-  xcontext 'returning most recent quotes' do                                        
+  context 'returning most recent quotes' do                                        
                                                                                    
     it 'returns the correct json' do                                               
       quotes = []                                                                  

@@ -11,6 +11,9 @@ class QuotesController < ApplicationController
     render :nothing => true, :status => 200
   end
 
+  def most_recent
+    render json: Quote.most_recent
+  end
   private
 
   def quote_params
