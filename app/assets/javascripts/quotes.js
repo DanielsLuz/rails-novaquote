@@ -2,6 +2,10 @@ var createQuoteNode = function(quote) {
   var aDiv = $('<div/>', {
     'class':'content col-sm-6'
   })
+  var profilePic = $('<img />', {
+    'src': quote.profile_pic,
+    'class': 'profile_pic'
+  })
   var text = $('<p>', {
     'class':'medium-font',
     'text': quote.text
@@ -10,7 +14,7 @@ var createQuoteNode = function(quote) {
     'class':'text-right author',
     'text': '- ' + quote.user_name
   })
-  $(aDiv).append(text).append(author);
+  $(aDiv).append(profilePic).append(text).append(author);
   return aDiv
 }
 

@@ -9,12 +9,12 @@ class SlackWrapper
   private
 
   SLACK_API_URL = "https://slack.com/api"
-  API_METHOD = "/users.info?"
-  API_TOKEN = "xoxp-72491650305-72487885973-72488819924-c3991481bb"
+  SLACK_API_METHOD = "/users.info?"
+  SLACK_API_TOKEN = ENV['SLACK_API_TOKEN']
 
   def self.build_url(user_token)
     URI.parse(
-      SLACK_API_URL + API_METHOD + "token=" + API_TOKEN +
+      SLACK_API_URL + SLACK_API_METHOD + "token=" + SLACK_API_TOKEN +
       "&user=" + user_token + "&pretty=1"
     )
   end
