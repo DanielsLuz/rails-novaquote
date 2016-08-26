@@ -24,4 +24,19 @@ RSpec.describe QuotesController, type: :controller do
       expect(quote.user_name).to eq(valid_params[:user_name])
     end
   end
+
+  xcontext 'returning most recent quotes' do                                        
+                                                                                   
+    it 'returns the correct json' do                                               
+      quotes = []                                                                  
+      (1..10).to_a.each do |num|                                                   
+        quotes << Quote.create(text: "Text #{num}", user_name: "User #{num}")   
+      end                                                                          
+      quotes = quotes.reverse.to_json(only: [:id, :text, :user_name])              
+                                                                                   
+      get :most_recent                                                             
+                                                                                   
+      expect(response.body).to eq(quotes)                                          
+    end                                                                            
+  end
 end
