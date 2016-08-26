@@ -10,11 +10,11 @@ class Quote < ActiveRecord::Base
       params[:text], params[:user_name] = params[:text].split(" by ")
     end
 
-    if(params[:user])
-      params[:profile_pic] = profile_pic(params[:user])
+    if(params[:user_id])
+      params[:profile_pic] = profile_pic(params[:user_id])
     end
 
-    new(params.except(:user))
+    new(params.except(:user_id))
   end
 
   private

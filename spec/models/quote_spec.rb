@@ -4,7 +4,7 @@ require 'slack_wrapper'
 RSpec.describe Quote, type: :model do
 
   let(:params) { 
-    { text: "sample text", user_name: "author name", user: "U24EBS1UM" } 
+    { text: "sample text", user_name: "author name", user_id: "U24EBS1UM" } 
   }
 
   it 'returns the most recent quotes' do                                     
