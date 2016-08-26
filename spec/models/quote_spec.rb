@@ -4,7 +4,7 @@ require 'slack_wrapper'
 RSpec.describe Quote, type: :model do
 
   let(:params) { 
-    { text: "sample text", user_name: "author name", user_id: "U24EBS1UM" } 
+    { text: "sample text", user_name: "author name", user_id: "WRONG TOKEN" } 
   }
 
   it 'returns the most recent quotes' do                                     
@@ -23,9 +23,10 @@ RSpec.describe Quote, type: :model do
     expect(Quote.most_recent).to match_array(last_quotes)                          
   end
 
-  it 'creates with profile pic fetched' do
+  xit 'creates with profile pic fetched' do
+    pending("Please configure this url according to your tests")
     profile_pic =
-      "https://secure.gravatar.com/avatar/611347217328fac750a04904fd2179c2.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0022-72.png"
+      "CONFIGURE URL"
     @quote = Quote.parse_params(params)
     @quote.save
     expect(Quote.last.profile_pic).to eq(profile_pic)
