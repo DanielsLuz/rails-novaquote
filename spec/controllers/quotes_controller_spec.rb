@@ -11,13 +11,13 @@ RSpec.describe QuotesController, type: :controller do
     it 'creates a new quote' do
       expect(Quote.all.size).to eq(0)
 
-      get :new_quote, valid_params
+      post :new_quote, valid_params
 
       expect(Quote.all.size).to eq(1)
     end
 
     it 'creates a correct quote' do
-      get :new_quote, valid_params
+      post :new_quote, valid_params
 
       quote = Quote.last
       expect(quote.text).to eq(valid_params[:text])

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'quotes#index'
-  get 'new_quote' => 'quotes#new_quote'
+  post 'new_quote' => 'quotes#new_quote'
   get 'quotes/most_recent' => 'quotes#most_recent'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
