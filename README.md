@@ -28,6 +28,9 @@ At your deployment server, set an environment variable `SLACK_API_TOKEN` with yo
 
 SLACK_API_TOKEN="YOUR-SLACK-API-TOKEN" *note the double quotes*
 
-TODO
------
-- **Validate the slack command token sent on the request!** (*Currently, any slack command that points to this application endpoint will trigger a quote creation*)
+Additionally, you need to tell the application the token of your command so we
+can verify that is really your slack. This token can be verified at the page of
+your **Slash commands** creation. Configure an environment variable
+`SLACK_COMMAND_TOKEN` as before.
+
+SLACK_COMMAND_TOKEN="YOUR-SLACK-COMMAND-TOKEN" *note the double quotes*
