@@ -2,7 +2,7 @@
 
 This is a simple rails application that register text sent through a slack command as quotes, with the profile picture of the sender and an author.
 
-Just configure your command to send a GET request to the `/new_quote` endpoint.
+Just configure your command to send a POST request to the `/new_quote` endpoint.
 
 Usage
 -----
@@ -31,4 +31,3 @@ SLACK_API_TOKEN="YOUR-SLACK-API-TOKEN" *note the double quotes*
 TODO
 -----
 - **Validate the slack command token sent on the request!** (*Currently, any slack command that points to this application endpoint will trigger a quote creation*)
-- Make it use POST requests instead of GET.
