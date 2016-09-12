@@ -2,10 +2,14 @@ require 'rails_helper'
 
 RSpec.describe QuotesController, type: :controller do
 
-  context 'receiving a get request' do
+  context 'receiving a post request' do
+
+    before :each do
+      ENV["SLACK_COMMAND_TOKEN"] = "correct_token"
+    end
 
     let(:valid_params) { 
-      { text: "sample text", user_name: "author name" } 
+      { text: "sample text", user_name: "author name", token: "correct_token" } 
     }
 
     it 'creates a new quote' do
@@ -22,6 +26,19 @@ RSpec.describe QuotesController, type: :controller do
       quote = Quote.last
       expect(quote.text).to eq(valid_params[:text])
       expect(quote.user_name).to eq(valid_params[:user_name])
+    end
+
+    it 'dont create with incorrect token' do
+      expect(Quote.all.size).to eq(0)
+
+      params_without_token = {
+        text: "sample text",
+        user_name: "author name",
+        token: "incorrect_token"
+      }
+      post :new_quote, params_without_token
+
+      expect(Quote.all.size).to eq(0)
     end
   end
 
