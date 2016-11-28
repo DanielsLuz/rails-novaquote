@@ -26,11 +26,11 @@ You can generate a test token at: https://api.slack.com/docs/oauth-test-tokens
 
 At your deployment server, set an environment variable `SLACK_API_TOKEN` with your token. Ex:
 
-SLACK_API_TOKEN="YOUR-SLACK-API-TOKEN" *note the double quotes*
+    SLACK_API_TOKEN="YOUR-SLACK-API-TOKEN" *note the double quotes*
 
 Additionally, you need to tell the application the token of your command so we
 can verify that is really your slack. This token can be verified at the page of
 your **Slash commands** creation. Configure an environment variable
 `SLACK_COMMAND_TOKEN` as before.
 
-SLACK_COMMAND_TOKEN="YOUR-SLACK-COMMAND-TOKEN" *note the double quotes*
+    SLACK_COMMAND_TOKEN="YOUR-SLACK-COMMAND-TOKEN" *note the double quotes*
