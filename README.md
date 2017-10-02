@@ -1,5 +1,5 @@
-#README
-
+Novaquote
+=====
 This is a simple rails application that register text sent through a slack command as quotes, with the profile picture of the sender and an author.
 
 Just configure your command to send a POST request to the `/new_quote` endpoint.
